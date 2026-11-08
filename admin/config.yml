@@ -1,0 +1,35 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "pt"
+
+site_url: "https://gamepulse.netlify.app"
+display_url: "https://gamepulse.netlify.app"
+logo_url: "https://gamepulse.netlify.app/logo.png"
+
+collections:
+  - name: "artigos"
+    label: "Notícias e Artigos"
+    label_singular: "Notícia ou Artigo"
+    folder: "_artigos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Título da Matéria", name: "title", widget: "string", hint: "Manchete principal visível em todo o portal" }
+      - { label: "Subtítulo / Resumo", name: "subtitle", widget: "text", hint: "Linha fina explicativa exibida nos cards e cabeçalho" }
+      - { label: "Data de Publicação", name: "date", widget: "datetime", format: "DD/MM/YYYY", dateFormat: "DD/MM/YYYY", timeFormat: false }
+      - { label: "Categoria", name: "category", widget: "select", options: ["Games", "Consoles", "Hardware", "Tecnologia", "Guias"] }
+      - { label: "Autor da Matéria", name: "author", widget: "string", default: "Redação GamePulse" }
+      - { label: "Cargo do Autor", name: "authorRole", widget: "string", default: "Editor GamePulse Brasil" }
+      - { label: "Tempo de Leitura", name: "readTime", widget: "string", default: "5 min" }
+      - { label: "Imagem de Destaque", name: "image", widget: "image", choose_url: false }
+      - { label: "Tags (separadas por vírgula)", name: "tags", widget: "list", default: ["Games", "Destaque", "Brasil"] }
+      - { label: "Matéria em Destaque Principal (Hero)", name: "isHero", widget: "boolean", default: false }
+      - { label: "Matéria Popular / Trending", name: "isPopular", widget: "boolean", default: false }
+      - { label: "Corpo Completo da Matéria", name: "body", widget: "markdown" }
