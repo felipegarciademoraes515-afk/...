@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel Editorial | GAMEPULSE</title>
-  <meta name="robots" content="noindex, nofollow">
-  <!-- Netlify Identity Widget para Autenticação Segura -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GamePulse CMS</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- Decap CMS Core -->
-  <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 </head>
-<body>
+<body style="margin: 0; background-color: #0f111a; font-family: sans-serif;">
+  <!-- Carregamento do Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.reload();
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
